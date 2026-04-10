@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 function soma(a, b) {
   return a + b;
 }
