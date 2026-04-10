@@ -25,4 +25,8 @@ jobs:
         run: npx eslint .
 
       - name: Rodar Jest
+<<<<<<< HEAD
         run: npm test
+=======
+        run: npm test
+>>>>>>> d25fab979d18ccae1e550cd635f015049b869a18
