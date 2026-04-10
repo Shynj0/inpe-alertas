@@ -1,33 +1,28 @@
-# Nome do workflow (conforme Exercício 5 da Aula 3)
-name: CI com ESLint
+[cite_start]name: CI com ESLint e Testes 
 
-# Eventos que disparam o workflow
 on:
   push:
-    branches: [ dev ] # dispara apenas quando o commit é na branch dev
+    [cite_start]branches: [ dev ] 
   pull_request:
-    branches: [ dev ] # dispara quando há PR para dev
+    [cite_start]branches: [ dev ] 
 
 jobs:
-  # Definindo o job de linting
-  lint:
-    runs-on: ubuntu-latest # ambiente Linux
-    
+  [cite_start]lint-and-test: 
+    [cite_start]runs-on: ubuntu-latest 
     steps:
-      # 1. Baixar o código do repositório
       - name: Checkout do repositório
-        uses: actions/checkout@v4
+        [cite_start]uses: actions/checkout@v4 
 
-      # 2. Instalar Node.js
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Atualizado para a versão estável que você está usando
+          [cite_start]node-version: '20' 
 
-      # 3. Instalar dependências (Necessário para o ESLint encontrar os plugins)
       - name: Instalar dependências
-        run: npm install --legacy-peer-deps
+        [cite_start]run: npm install --legacy-peer-deps 
 
-      # 4. Rodar ESLint (O "robô" agora verifica seu código automaticamente)
       - name: Rodar ESLint
-        run: npx eslint .
+        run: npx eslint . [cite_start]# [cite: 108, 109]
+
+      - name: Rodar Jest
+        [cite_start]run: npm test 

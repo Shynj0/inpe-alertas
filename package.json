@@ -4,7 +4,7 @@
   "description": "Objetivo: app móvel para alertas de queimadas, inundações, desmatamento e relatos da população em tempo real.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "eslint": "^10.2.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.4.0",
+    "jest": "^30.3.0",
     "prettier": "^3.8.2"
   }
 }
