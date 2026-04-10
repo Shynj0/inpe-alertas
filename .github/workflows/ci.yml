@@ -1,28 +1,28 @@
-[cite_start]name: CI com ESLint e Testes 
+name: CI com ESLint e Testes
 
 on:
   push:
-    [cite_start]branches: [ dev ] 
+    branches: [ dev ]
   pull_request:
-    [cite_start]branches: [ dev ] 
+    branches: [ dev ]
 
 jobs:
-  [cite_start]lint-and-test: 
-    [cite_start]runs-on: ubuntu-latest 
+  lint-and-test:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout do repositório
-        [cite_start]uses: actions/checkout@v4 
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          [cite_start]node-version: '20' 
+          node-version: '20'
 
       - name: Instalar dependências
-        [cite_start]run: npm install --legacy-peer-deps 
+        run: npm install --legacy-peer-deps
 
       - name: Rodar ESLint
-        run: npx eslint . [cite_start]# [cite: 108, 109]
+        run: npx eslint .
 
       - name: Rodar Jest
-        [cite_start]run: npm test 
+        run: npm test
