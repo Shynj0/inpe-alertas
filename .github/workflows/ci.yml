@@ -1,7 +1,7 @@
-# Nome do workflow (conforme Exercício 2 da Aula 3)
-name: CI Simples
+# Nome do workflow (conforme Exercício 5 da Aula 3)
+name: CI com ESLint
 
-# Eventos que disparam o workflow (conforme Exercício 2 e 5 da Aula 3)
+# Eventos que disparam o workflow
 on:
   push:
     branches: [ dev ] # dispara apenas quando o commit é na branch dev
@@ -9,21 +9,25 @@ on:
     branches: [ dev ] # dispara quando há PR para dev
 
 jobs:
-  # Definindo um job chamado "build"
-  build:
-    runs-on: ubuntu-latest # ambiente Linux (conforme Exercício 2 da Aula 3)
+  # Definindo o job de linting
+  lint:
+    runs-on: ubuntu-latest # ambiente Linux
     
     steps:
-      # 1. Baixar o código do repositório (conforme Exercício 2 da Aula 3)
+      # 1. Baixar o código do repositório
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      # 2. Configurar o ambiente Node.js (conforme Exercício 2 da Aula 2)
+      # 2. Instalar Node.js
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20' # Atualizado para a versão estável que você está usando
 
-      # 3. Teste de funcionamento personalizado (conforme Exercício 4 da Aula 3)
-      - name: Teste de funcionamento
-        run: echo "Pipeline do projeto INPE executado com sucesso!"
+      # 3. Instalar dependências (Necessário para o ESLint encontrar os plugins)
+      - name: Instalar dependências
+        run: npm install --legacy-peer-deps
+
+      # 4. Rodar ESLint (O "robô" agora verifica seu código automaticamente)
+      - name: Rodar ESLint
+        run: npx eslint .
