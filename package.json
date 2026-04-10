@@ -1,0 +1,29 @@
+{
+  "name": "inpe-alertas",
+  "version": "1.0.0",
+  "description": "Objetivo: app móvel para alertas de queimadas, inundações, desmatamento e relatos da população em tempo real.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shynj0/inpe-alertas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Shynj0/inpe-alertas/issues"
+  },
+  "homepage": "https://github.com/Shynj0/inpe-alertas#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^17.4.0",
+    "jest": "^30.3.0",
+    "prettier": "^3.8.2"
+  }
+}

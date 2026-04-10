@@ -1,29 +1,28 @@
-# Nome do workflow (conforme Exercício 2 da Aula 3)
-name: CI Simples
+[cite_start]name: CI com ESLint e Testes 
 
-# Eventos que disparam o workflow (conforme Exercício 2 e 5 da Aula 3)
 on:
   push:
-    branches: [ dev ] # dispara apenas quando o commit é na branch dev
+    [cite_start]branches: [ dev ] 
   pull_request:
-    branches: [ dev ] # dispara quando há PR para dev
+    [cite_start]branches: [ dev ] 
 
 jobs:
-  # Definindo um job chamado "build"
-  build:
-    runs-on: ubuntu-latest # ambiente Linux (conforme Exercício 2 da Aula 3)
-    
+  [cite_start]lint-and-test: 
+    [cite_start]runs-on: ubuntu-latest 
     steps:
-      # 1. Baixar o código do repositório (conforme Exercício 2 da Aula 3)
       - name: Checkout do repositório
-        uses: actions/checkout@v4
+        [cite_start]uses: actions/checkout@v4 
 
-      # 2. Configurar o ambiente Node.js (conforme Exercício 2 da Aula 2)
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          [cite_start]node-version: '20' 
 
-      # 3. Teste de funcionamento personalizado (conforme Exercício 4 da Aula 3)
-      - name: Teste de funcionamento
-        run: echo "Pipeline do projeto INPE executado com sucesso!"
+      - name: Instalar dependências
+        [cite_start]run: npm install --legacy-peer-deps 
+
+      - name: Rodar ESLint
+        run: npx eslint . [cite_start]# [cite: 108, 109]
+
+      - name: Rodar Jest
+        [cite_start]run: npm test 
