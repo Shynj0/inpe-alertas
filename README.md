@@ -1,3 +1,6 @@
 # Aplicativo INPE – Monitoramento de Eventos Climáticos
 Objetivo: app móvel para alertas de queimadas, inundações, desmatamento e relatos da população em tempo real.
-Tentaitva de uso do workflow e aprovacao pelo contribuidor
+
+Aprovacao pelo contribuidor
+
+CI/CD configurado na Aula 3
