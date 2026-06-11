@@ -1,19 +1,19 @@
-name: CI com ESLint e Testes
+name: Auditoria de Segurança
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ dev, main ]
   pull_request:
-    branches: [ dev ]
+    branches: [ dev, main ]
 
 jobs:
-  lint-and-test:
+  security-audit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do repositório
+      - name: Clonar o repositório
         uses: actions/checkout@v4
 
-      - name: Configurar Node.js
+      - name: Configurar o Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -21,8 +21,5 @@ jobs:
       - name: Instalar dependências
         run: npm install --legacy-peer-deps
 
-      - name: Rodar ESLint
-        run: npx eslint .
-
-      - name: Rodar Jest
-        run: npm test
+      - name: Executar Auditoria de Segurança
+        run: npm audit

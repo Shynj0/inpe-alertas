@@ -1,0 +1,28 @@
+name: Relatório de Cobertura de Testes
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  coverage-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar o repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependências
+        run: npm install --legacy-peer-deps
+
+      - name: Executar Cobertura de Testes
+        run: npm run test:coverage
+
+      - name: Enviar Relatório para o Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          fail_ci_if_error: false

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 function classificarAlerta(nivel) {
   if (nivel > 80) return "Crítico";
   if (nivel > 50) return "Alto";
@@ -5,7 +6,7 @@ function classificarAlerta(nivel) {
 }
 
 test("alerta crítico se nível maior que 80", () => {
-  expect(classificarAlerta(90)).toBe("Alto"); // [cite: 65, 66]
+  expect(classificarAlerta(90)).toBe("Crítico"); // [cite: 65, 66]
 });
 
 test("alerta alto se nível entre 51 e 80", () => {
